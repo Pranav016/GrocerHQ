@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import GrocerForm from './GrocerForm';
+import GrocerElement from './GrocerElement';
 
 const GrocerList = () => {
 	const [grocerItems, setGrocerItems] = useState([]);
@@ -11,12 +12,32 @@ const GrocerList = () => {
 		setGrocerItems((prevState) => [...prevState, newItem]);
 	};
 
+	const completeItem = (id) => {
+		let updatedGrocerItems = grocerItems.map((item) => {
+			if (item.id === id) {
+				item.isComplete = !item.isComplete;
+			}
+			return item;
+		});
+		setGrocerItems(updatedGrocerItems);
+	};
+
+	const removeItem = (id) => {
+		let updatedGrocerItems = grocerItems.filter((item) => {
+			return item.id !== id;
+		});
+		setGrocerItems(updatedGrocerItems);
+	};
+
 	return (
 		<>
 			<h1>What's on your Grocery List ?</h1>
 			<GrocerForm onSubmit={addItem} />
-			{grocerItems &&
-				grocerItems.map((item) => <li key={item.id}>{item.name}</li>)}
+			<GrocerElement
+				grocerItems={grocerItems}
+				completeItem={completeItem}
+				removeItem={removeItem}
+			/>
 		</>
 	);
 };
