@@ -1,11 +1,11 @@
 import './App.css';
-import GrocerForm from './components/GrocerForm';
+import GrocerList from './components/GrocerList';
 
 function App() {
 	return (
-		<>
-			<GrocerForm />
-		</>
+		<div>
+			<GrocerList />
+		</div>
 	);
 }
 
