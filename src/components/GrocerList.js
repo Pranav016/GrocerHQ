@@ -29,6 +29,15 @@ const GrocerList = () => {
 		setGrocerItems(updatedGrocerItems);
 	};
 
+	const updateItem = (id, name) => {
+		if (!name || /^\s*$/.test(name)) {
+			return;
+		}
+		setGrocerItems((prev) =>
+			prev.map((item) => (item.id === id ? { id, name } : item))
+		);
+	};
+
 	return (
 		<>
 			<h1>What's on your Grocery List ?</h1>
@@ -37,6 +46,7 @@ const GrocerList = () => {
 				grocerItems={grocerItems}
 				completeItem={completeItem}
 				removeItem={removeItem}
+				updateItem={updateItem}
 			/>
 		</>
 	);

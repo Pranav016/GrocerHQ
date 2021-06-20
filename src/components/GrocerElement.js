@@ -1,12 +1,27 @@
 import React, { useState } from 'react';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { TiEdit } from 'react-icons/ti';
+import GrocerForm from './GrocerForm';
 
-const GrocerElement = ({ grocerItems, completeItem, removeItem }) => {
+const GrocerElement = ({
+	grocerItems,
+	completeItem,
+	removeItem,
+	updateItem,
+}) => {
 	const [edit, setEdit] = useState({
 		id: null,
 		name: '',
 	});
+
+	const submitUpdate = (newVal) => {
+		updateItem(edit.id, newVal.name);
+		setEdit({ id: null, name: '' });
+	};
+
+	if (edit.id) {
+		return <GrocerForm onSubmit={submitUpdate} />;
+	}
 
 	return grocerItems.map((item, index) => (
 		<div
