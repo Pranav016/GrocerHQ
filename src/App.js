@@ -3,7 +3,7 @@ import GrocerList from './components/GrocerList';
 
 function App() {
 	return (
-		<div>
+		<div className='grocer-app'>
 			<GrocerList />
 		</div>
 	);

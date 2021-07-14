@@ -1,8 +1,12 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const GrocerForm = (props) => {
 	const [input, setInput] = useState('');
 	const inputRef = useRef(null);
+
+	useEffect(() => {
+		inputRef.current.focus();
+	});
 
 	const handleChange = (e) => {
 		setInput(e.target.value);
