@@ -20,7 +20,13 @@ const GrocerElement = ({
 	};
 
 	if (edit.id) {
-		return <GrocerForm onSubmit={submitUpdate} />;
+		return (
+			<GrocerForm
+				onSubmit={submitUpdate}
+				placeholder={'Update the Item'}
+				grocerButton={'Update'}
+			/>
+		);
 	}
 
 	return grocerItems.map((item, index) => (

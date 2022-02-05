@@ -27,13 +27,13 @@ const GrocerForm = (props) => {
 		<form className='grocer-form' onSubmit={handleSubmit}>
 			<input
 				type='text'
-				placeholder='Add an item'
+				placeholder={props.placeholder}
 				className='grocer-input'
 				value={input}
 				ref={inputRef}
 				onChange={handleChange}
 			/>
-			<button className='grocer-button'>Add an item</button>
+			<button className='grocer-button'>{props.grocerButton}</button>
 		</form>
 	);
 };

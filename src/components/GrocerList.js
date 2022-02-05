@@ -41,7 +41,11 @@ const GrocerList = () => {
 	return (
 		<>
 			<h1>What's on your Grocery List ?</h1>
-			<GrocerForm onSubmit={addItem} />
+			<GrocerForm
+				onSubmit={addItem}
+				placeholder={'Add an Item'}
+				grocerButton={'Add'}
+			/>
 			<GrocerElement
 				grocerItems={grocerItems}
 				completeItem={completeItem}
