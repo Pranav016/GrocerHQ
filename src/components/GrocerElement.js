@@ -25,6 +25,7 @@ const GrocerElement = ({
 				onSubmit={submitUpdate}
 				placeholder={'Update the Item'}
 				grocerButton={'Update'}
+				edit={{ ...edit }}
 			/>
 		);
 	}

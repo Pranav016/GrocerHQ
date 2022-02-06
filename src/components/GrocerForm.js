@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 const GrocerForm = (props) => {
-	const [input, setInput] = useState('');
+	const [input, setInput] = useState(props.edit ? props.edit.name : '');
 	const inputRef = useRef(null);
 
 	useEffect(() => {
@@ -28,12 +28,14 @@ const GrocerForm = (props) => {
 			<input
 				type='text'
 				placeholder={props.placeholder}
-				className='grocer-input'
+				className={`grocer-input ${props.edit ? 'edit' : ''}`}
 				value={input}
 				ref={inputRef}
 				onChange={handleChange}
 			/>
-			<button className='grocer-button'>{props.grocerButton}</button>
+			<button className={`grocer-button ${props.edit ? 'edit' : ''}`}>
+				{props.grocerButton}
+			</button>
 		</form>
 	);
 };
